@@ -1,14 +1,23 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Post from './Post'
+import Container from 'react-bootstrap/Container'
+import Post, { IPost } from './Post'
 
-const Posts: React.FC<{}> = (): JSX.Element => {
+interface PostsProps {
+	posts: IPost[]
+}
+
+const Posts: React.FC<PostsProps> = ({ posts }): JSX.Element => {
 	return (
-		<Row className='p-4'>
-			<Col>
-				<h1>Posts</h1>
-			</Col>
-		</Row>
+		<Container fluid>
+			<Row>
+				{posts.map((post) => (
+					<Col key={post.id}>
+						<Post {...post} />
+					</Col>
+				))}
+			</Row>
+		</Container>
 	)
 }
 

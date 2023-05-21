@@ -18,6 +18,6 @@ const Home = () => {
 		fetchPosts()
 	}, [])
 
-	return <div>{isLoading ? <Loader /> : <Posts />}</div>
+	return <>{isLoading ? <Loader /> : <Posts posts={posts} />}</>
 }
 export default Home
